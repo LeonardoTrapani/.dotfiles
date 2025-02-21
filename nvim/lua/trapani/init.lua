@@ -29,12 +29,6 @@ autocmd("TextYankPost", {
 	end,
 })
 
-autocmd({ "BufWritePre" }, {
-	group = TrapaniGroup,
-	pattern = "*",
-	command = [[%s/\s\+$//e]],
-})
-
 autocmd("LspAttach", {
 	group = TrapaniGroup,
 	callback = function(e)
