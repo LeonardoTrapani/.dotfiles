@@ -1,0 +1,5 @@
+theme = "catppuccin-mocha"
+font-size = 14
+window-width = 100000000
+window-height = 100000000
+mouse-hide-while-typing = true

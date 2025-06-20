@@ -1,0 +1,4 @@
+yay
+yay-debug
+zen-browser-bin
+zsh-you-should-use
