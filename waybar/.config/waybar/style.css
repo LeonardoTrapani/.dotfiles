@@ -1,80 +1,91 @@
 /* Import Official Catppuccin Mocha Colors */
 @import "catppuccin-mocha.css";
 
-/* Reset and base styles */
+/* Modern Waybar inspired by popular online designs */
 * {
-  font-family: "JetBrains Mono Nerd Font", "Inter", sans-serif;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrains Mono Nerd Font", "SF Pro Display", "Inter", sans-serif;
   font-size: 14px;
+  font-weight: 600;
   min-height: 0;
+  min-width: 0;
 }
 
 /* Main waybar window */
-#waybar {
-  background: transparent;
+window#waybar {
+  background-color: @crust;
   color: @text;
-  margin: 5px 5px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
-/* Tooltip styling */
-tooltip {
-  background: @surface0;
-  border: 2px solid @surface2;
-  border-radius: 16px;
-  color: @text;
-  padding: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-tooltip label {
-  color: @text;
-}
-
-/* Workspaces */
+/* Workspaces - clean pill design */
 #workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
+  background: transparent;
+  margin: 0 8px;
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
-}
-
-#workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
+  padding: 6px 12px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  background-color: @surface0;
+  color: @subtext0;
+  transition: all 0.3s ease;
+  min-width: 20px;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+  background-color: @surface1;
+  color: @text;
+}
+
+#workspaces button.active {
+  background-color: @blue;
+  color: @crust;
+  font-weight: 700;
 }
 
 #workspaces button.urgent {
-  color: @red;
+  background-color: @red;
+  color: @crust;
+  animation: urgent-blink 1s ease infinite alternate;
 }
 
-/* Window title */
+/* Window title - sleek design */
 #window {
+  background-color: @surface0;
   color: @text;
-  border-radius: 1rem;
-  margin-left: 1rem;
+  padding: 6px 16px;
+  margin: 4px 8px;
+  border-radius: 8px;
+  font-weight: 500;
 }
 
-/* Media player */
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/* Media player - elegant styling */
 #custom-media {
-  color: @mauve;
-  border-radius: 1rem;
+  background-color: @surface0;
+  color: @green;
+  padding: 6px 16px;
+  margin: 4px 4px;
+  border-radius: 8px;
+  font-weight: 500;
 }
 
-#custom-media:hover {
-  background: @surface1;
+#custom-media.playing {
+  color: @green;
 }
 
-/* Common module styling */
+#custom-media.paused {
+  color: @overlay1;
+}
+
+/* System modules - modern card design */
 #custom-updates,
 #custom-weather,
 #network,
@@ -82,87 +93,46 @@ tooltip label {
 #backlight,
 #battery,
 #clock,
+#tray,
 #custom-power {
   background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+  padding: 6px 12px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-/* Updates module */
+/* Individual module colors */
 #custom-updates {
   color: @peach;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
 }
 
-#custom-updates:hover {
-  background: @surface1;
-  box-shadow: 0 6px 20px rgba(250, 179, 135, 0.3);
-}
-
-/* Weather module */
 #custom-weather {
   color: @sky;
-  border-radius: 0;
 }
 
-#custom-weather:hover {
-  background: @surface1;
-  box-shadow: 0 6px 20px rgba(137, 220, 235, 0.3);
-}
-
-/* Network module */
 #network {
   color: @teal;
-  border-radius: 0;
-}
-
-#network:hover {
-  background: @surface1;
-  box-shadow: 0 6px 20px rgba(148, 226, 213, 0.3);
 }
 
 #network.disconnected {
   color: @red;
-  border-color: @red;
 }
 
-/* Audio module */
 #pulseaudio {
-  color: @blue;
-  border-radius: 0;
-}
-
-#pulseaudio:hover {
-  background: @surface1;
-  box-shadow: 0 6px 20px rgba(137, 180, 250, 0.3);
+  color: @lavender;
 }
 
 #pulseaudio.muted {
-  color: @overlay0;
-  border-color: @overlay0;
+  color: @overlay1;
 }
 
-/* Backlight module */
 #backlight {
   color: @yellow;
-  border-radius: 0;
 }
 
-#backlight:hover {
-  background: @surface1;
-  box-shadow: 0 6px 20px rgba(249, 226, 175, 0.3);
-}
-
-/* Battery module */
 #battery {
   color: @green;
-  border-radius: 0;
-}
-
-#battery:hover {
-  background: @surface1;
-  box-shadow: 0 6px 20px rgba(166, 227, 161, 0.3);
 }
 
 #battery.charging {
@@ -171,97 +141,84 @@ tooltip label {
 
 #battery.warning:not(.charging) {
   color: @peach;
+  animation: warning-pulse 2s ease infinite;
 }
 
 #battery.critical:not(.charging) {
   color: @red;
+  animation: critical-pulse 1s ease infinite;
 }
 
-/* Clock module */
 #clock {
   color: @mauve;
-  border-radius: 0;
+  font-weight: 700;
+  margin-right: 8px;
 }
 
-#clock:hover {
-  background: @surface1;
-  box-shadow: 0 6px 20px rgba(203, 166, 247, 0.3);
+#tray {
+  color: @text;
+  margin-right: 8px;
 }
 
-/* Power button */
 #custom-power {
-  margin-right: 1rem;
-  border-radius: 0px 1rem 1rem 0px;
   color: @red;
+  margin-right: 8px;
+  font-size: 16px;
 }
 
-#custom-power:hover {
-  background: @surface1;
-  box-shadow: 0 6px 20px rgba(243, 139, 168, 0.3);
+/* Hover effects for all modules */
+#custom-updates:hover,
+#custom-weather:hover,
+#network:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#battery:hover,
+#clock:hover,
+#tray:hover,
+#custom-power:hover,
+#custom-media:hover,
+#window:hover {
+  background-color: @surface1;
+}
+
+/* Tooltips */
+tooltip {
+  background-color: @surface0;
+  border: 2px solid @blue;
+  border-radius: 12px;
+  color: @text;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+tooltip label {
+  color: @text;
 }
 
 /* Animations */
 @keyframes urgent-blink {
-  from { 
-    background: @red;
-    box-shadow: 0 4px 12px rgba(243, 139, 168, 0.4);
+  from {
+    background-color: @red;
   }
-  to { 
-    background: @maroon;
-    box-shadow: 0 4px 20px rgba(243, 139, 168, 0.6);
+  to {
+    background-color: @maroon;
   }
 }
 
 @keyframes warning-pulse {
-  from { 
-    border-color: @peach;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  0%, 100% {
+    opacity: 1;
   }
-  to { 
-    border-color: @yellow;
-    box-shadow: 0 6px 20px rgba(250, 179, 135, 0.4);
+  50% {
+    opacity: 0.7;
   }
 }
 
 @keyframes critical-pulse {
-  from { 
-    border-color: @red;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  0%, 100% {
+    opacity: 1;
   }
-  to { 
-    border-color: @maroon;
-    box-shadow: 0 6px 20px rgba(243, 139, 168, 0.4);
+  50% {
+    opacity: 0.5;
   }
-}
-
-@keyframes charging-pulse {
-  from { 
-    border-color: @green;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  }
-  to { 
-    border-color: @teal;
-    box-shadow: 0 6px 20px rgba(166, 227, 161, 0.4);
-  }
-}
-
-/* Apply smooth transitions to all modules */
-#workspaces,
-#window,
-#custom-media,
-#custom-updates,
-#custom-weather,
-#network,
-#pulseaudio,
-#backlight,
-#battery,
-#clock,
-#custom-power {
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Tray */
-#tray {
-  margin-right: 1rem;
-  border-radius: 1rem;
 }
