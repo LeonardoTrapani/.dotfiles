@@ -14,7 +14,7 @@
 
 /* Main waybar window */
 window#waybar {
-  background-color: @crust;
+  background-color: transparent;
   color: @text;
   transition-property: background-color;
   transition-duration: 0.5s;
