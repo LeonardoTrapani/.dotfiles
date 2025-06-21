@@ -9,6 +9,9 @@ alias ls="ls --color"
 alias tls="tmuxp load"
 alias cd="z"
 
+export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
+
 unset MAILCHECK
 
 # -----------------------------
@@ -87,3 +90,4 @@ export NVM_DIR="$HOME/.nvm"
 # pipx PATH (if used)
 # -----------------------------
 export PATH="$HOME/.local/bin:$PATH"
+

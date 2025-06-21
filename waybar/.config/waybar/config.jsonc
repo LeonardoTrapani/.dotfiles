@@ -1,0 +1,138 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+  "spacing": 6,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["custom/media"],
+  "modules-right": ["custom/updates", "custom/weather", "network", "pulseaudio", "backlight", "battery", "clock", "custom/power"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "active-only": false,
+    "all-outputs": true,
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "custom/media": {
+    "format": "{}",
+    "return-type": "string",
+    "max-length": 60,
+    "exec": "~/.config/waybar/scripts/media.sh",
+    "interval": 2,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-scroll-up": "playerctl previous",
+    "on-scroll-down": "playerctl next"
+  },
+
+  "custom/updates": {
+    "format": "{}",
+    "return-type": "string",
+    "exec": "~/.config/waybar/scripts/updates.sh",
+    "interval": 300,
+    "tooltip": true,
+    "tooltip-format": "Click to update system",
+    "on-click": "kitty -e 'yay -Syu'"
+  },
+
+  "custom/weather": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "wttrbar --location 'auto' --nerd --custom-indicator '{ICON} {temp_C}°C'",
+    "interval": 900,
+    "tooltip": true
+  },
+
+
+
+  "network": {
+    "format-wifi": "󰤨  {signalStrength}%",
+    "format-ethernet": "󰈀  Connected",
+    "format-linked": "󰈀  {ifname} (No IP)",
+    "format-disconnected": "󰤭  Disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰤨",
+    "on-click": "nm-connection-editor"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰸈  Muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "pamixer --toggle-mute",
+    "on-scroll-up": "pamixer --increase 5",
+    "on-scroll-down": "pamixer --decrease 5",
+    "tooltip-format": "Volume: {volume}%\nLeft click: Open mixer\nRight click: Mute/Unmute\nScroll: Adjust volume"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "scroll-step": 5,
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "tooltip-format": "Brightness: {percent}%\nScroll to adjust"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰂄  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "Battery: {capacity}%\nTime: {time}"
+  },
+
+  "clock": {
+    "format": "󰥔  {:%a %d %b  %H:%M}",
+    "format-alt": "󰃭  {:%Y-%m-%d}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#cba6f7'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks": "<span color='#a6adc8'><b>W{}</b></span>",
+        "weekdays": "<span color='#f38ba8'><b>{}</b></span>",
+        "today": "<span color='#f9e2af'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": "Power Menu",
+    "on-click": "wlogout --protocol layer-shell"
+  }
+}

@@ -1,0 +1,9 @@
+[shadow]
+enabled = true
+blur_radius = 10
+spread = 8
+opacity = 0.4
+offset_x = 4
+offset_y = 4
+color = "#1a1a1a"
+ignore_transparent = true
