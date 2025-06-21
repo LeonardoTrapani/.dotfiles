@@ -1,79 +1,92 @@
 /* Import Official Catppuccin Mocha Colors */
 @import "catppuccin-mocha.css";
 
-/* Modern Waybar inspired by popular online designs */
+/* Modern Waybar - Enhanced Coherent Design */
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrains Mono Nerd Font", "SF Pro Display", "Inter", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
+  font-family: "JetBrains Mono Nerd Font", "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
   min-height: 0;
   min-width: 0;
 }
 
-/* Main waybar window */
+/* Main waybar window - transparent floating effect */
 window#waybar {
-  background-color: transparent;
+  background: transparent;
   color: @text;
-  transition-property: background-color;
-  transition-duration: 0.5s;
 }
 
-/* Workspaces - clean pill design */
+/* Workspaces - Modern pill design */
 #workspaces {
-  background: transparent;
-  margin: 0 8px;
+  background: rgba(49, 50, 68, 0.8);
+  border-radius: 10px;
+  margin: 4px 6px;
+  padding: 3px 6px;
+  border: 1px solid rgba(137, 180, 250, 0.1);
 }
 
 #workspaces button {
-  padding: 6px 12px;
-  margin: 4px 2px;
+  padding: 6px 10px;
+  margin: 2px 3px;
   border-radius: 8px;
-  background-color: @surface0;
+  background: transparent;
   color: @subtext0;
-  transition: all 0.3s ease;
   min-width: 20px;
+  font-weight: 600;
 }
 
 #workspaces button:hover {
-  background-color: @surface1;
+  background: rgba(137, 180, 250, 0.15);
   color: @text;
 }
 
 #workspaces button.active {
-  background-color: @blue;
+  background: @blue;
   color: @crust;
   font-weight: 700;
+  box-shadow: 0 4px 12px rgba(137, 180, 250, 0.3);
 }
 
 #workspaces button.urgent {
-  background-color: @red;
+  background: @red;
   color: @crust;
 }
 
-/* Window title - sleek design */
+/* Window title */
 #window {
-  background-color: @surface0;
+  background: rgba(69, 71, 90, 0.8);
   color: @text;
-  padding: 6px 16px;
-  margin: 4px 8px;
-  border-radius: 8px;
+  padding: 6px 12px;
+  margin: 4px 6px;
+  border-radius: 10px;
   font-weight: 500;
+  border: 1px solid rgba(137, 180, 250, 0.1);
+}
+
+#window:hover {
+  background: rgba(69, 71, 90, 0.9);
 }
 
 window#waybar.empty #window {
-  background-color: transparent;
+  background: transparent;
+  border: none;
 }
 
-/* Media player - elegant styling */
+/* Media player */
 #custom-media {
-  background-color: @surface0;
+  background: rgba(166, 227, 161, 0.15);
   color: @green;
   padding: 6px 16px;
-  margin: 4px 4px;
-  border-radius: 8px;
+  margin: 4px 6px;
+  border-radius: 10px;
   font-weight: 500;
+  border: 1px solid rgba(166, 227, 161, 0.2);
+}
+
+#custom-media:hover {
+  background: rgba(166, 227, 161, 0.25);
 }
 
 #custom-media.playing {
@@ -84,7 +97,8 @@ window#waybar.empty #window {
   color: @overlay1;
 }
 
-/* System modules - modern card design */
+/* System modules */
+#custom-system-info,
 #custom-updates,
 #custom-weather,
 #network,
@@ -92,45 +106,84 @@ window#waybar.empty #window {
 #backlight,
 #battery,
 #clock,
-#tray,
-#custom-power {
-  background-color: @surface0;
-  padding: 6px 12px;
+#tray {
+  background: rgba(69, 71, 90, 0.8);
+  padding: 6px 10px;
   margin: 4px 2px;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  border: 1px solid rgba(137, 180, 250, 0.1);
+  font-weight: 500;
+}
+
+/* Hover effects */
+#custom-system-info:hover,
+#custom-updates:hover,
+#custom-weather:hover,
+#network:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#battery:hover,
+#clock:hover,
+#tray:hover {
+  background: rgba(69, 71, 90, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Individual module colors */
+#custom-system-info {
+  color: @sapphire;
+  background: rgba(116, 199, 236, 0.15);
+  border-color: rgba(116, 199, 236, 0.2);
+}
+
 #custom-updates {
   color: @peach;
+  background: rgba(250, 179, 135, 0.15);
+  border-color: rgba(250, 179, 135, 0.2);
 }
 
 #custom-weather {
   color: @sky;
+  background: rgba(137, 220, 235, 0.15);
+  border-color: rgba(137, 220, 235, 0.2);
 }
 
 #network {
   color: @teal;
+  background: rgba(148, 226, 213, 0.15);
+  border-color: rgba(148, 226, 213, 0.2);
 }
 
 #network.disconnected {
   color: @red;
+  background: rgba(243, 139, 168, 0.15);
+  border-color: rgba(243, 139, 168, 0.2);
 }
 
 #pulseaudio {
   color: @lavender;
+  background: rgba(180, 190, 254, 0.15);
+  border-color: rgba(180, 190, 254, 0.2);
 }
 
 #pulseaudio.muted {
   color: @overlay1;
+  background: rgba(69, 71, 90, 0.6);
 }
 
 #backlight {
   color: @yellow;
+  background: rgba(249, 226, 175, 0.15);
+  border-color: rgba(249, 226, 175, 0.2);
 }
 
 #battery {
+  color: @green;
+  background: rgba(166, 227, 161, 0.15);
+  border-color: rgba(166, 227, 161, 0.2);
+}
+
+#battery.good {
   color: @green;
 }
 
@@ -140,56 +193,62 @@ window#waybar.empty #window {
 
 #battery.warning:not(.charging) {
   color: @peach;
+  background: rgba(250, 179, 135, 0.2);
 }
 
 #battery.critical:not(.charging) {
   color: @red;
+  background: rgba(243, 139, 168, 0.2);
 }
 
 #clock {
   color: @mauve;
-  font-weight: 700;
-  margin-right: 8px;
+  background: rgba(203, 166, 247, 0.15);
+  border-color: rgba(203, 166, 247, 0.2);
+  font-weight: 600;
+  font-size: 13px;
+  margin-right: 6px;
+  padding: 6px 12px;
 }
 
 #tray {
   color: @text;
+  background: rgba(69, 71, 90, 0.8);
   margin-right: 8px;
-}
-
-#custom-power {
-  color: @red;
-  margin-right: 8px;
-  font-size: 16px;
-}
-
-/* Hover effects for all modules */
-#custom-updates:hover,
-#custom-weather:hover,
-#network:hover,
-#pulseaudio:hover,
-#backlight:hover,
-#battery:hover,
-#clock:hover,
-#tray:hover,
-#custom-power:hover,
-#custom-media:hover,
-#window:hover {
-  background-color: @surface1;
-}
-
-/* Tooltips */
-tooltip {
-  background-color: @surface0;
-  border: 2px solid @blue;
-  border-radius: 12px;
-  color: @text;
   padding: 8px 12px;
-  font-size: 13px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @red;
+}
+
+/* Enhanced tooltips */
+tooltip {
+  background: rgba(30, 30, 46, 0.95);
+  border: 2px solid @blue;
+  border-radius: 16px;
+  color: @text;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 tooltip label {
   color: @text;
+  font-weight: 500;
 }
 
-/* Animations removed for compatibility */
+/* Responsive design adjustments removed - not supported by Waybar */
+
+/* Focus states for accessibility */
+button:focus,
+*:focus {
+  outline: 2px solid @blue;
+  outline-offset: 2px;
+}

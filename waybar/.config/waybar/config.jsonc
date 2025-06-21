@@ -1,14 +1,14 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 36,
-  "spacing": 6,
-  "margin-top": 6,
-  "margin-left": 10,
-  "margin-right": 10,
+  "height": 32,
+  "spacing": 5,
+  "margin-top": 5,
+  "margin-left": 8,
+  "margin-right": 8,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["custom/media"],
-  "modules-right": ["custom/updates", "custom/weather", "network", "pulseaudio", "backlight", "battery", "clock", "custom/power"],
+  "modules-right": ["custom/updates", "custom/weather", "network", "pulseaudio", "backlight", "battery", "clock"],
 
   "hyprland/workspaces": {
     "format": "{name}",
@@ -56,7 +56,7 @@
   "custom/weather": {
     "format": "{}",
     "return-type": "json",
-    "exec": "wttrbar --location 'auto' --nerd --custom-indicator '{ICON} {temp_C}°C'",
+    "exec": "wttrbar --location 'auto' --nerd --custom-indicator '{ICON}  {temp_C}°C'",
     "interval": 900,
     "tooltip": true
   },
@@ -64,18 +64,18 @@
 
 
   "network": {
-    "format-wifi": "󰤨  {signalStrength}%",
-    "format-ethernet": "󰈀  Connected",
-    "format-linked": "󰈀  {ifname} (No IP)",
-    "format-disconnected": "󰤭  Disconnected",
+    "format-wifi": "󰤨   {signalStrength}%",
+    "format-ethernet": "󰈀   Connected",
+    "format-linked": "󰈀   {ifname} (No IP)",
+    "format-disconnected": "󰤭   Disconnected",
     "tooltip-format": "{ifname} via {gwaddr}",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰤨",
     "on-click": "nm-connection-editor"
   },
 
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
-    "format-muted": "󰸈  Muted",
+    "format": "{icon}   {volume}%",
+    "format-muted": "󰸈   Muted",
     "format-icons": {
       "default": ["󰕿", "󰖀", "󰕾"]
     },
@@ -89,7 +89,7 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon}  {percent}%",
+    "format": "{icon}   {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "scroll-step": 5,
     "on-scroll-up": "brightnessctl set +5%",
@@ -102,17 +102,17 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}  {capacity}%",
-    "format-charging": "󰂄  {capacity}%",
-    "format-plugged": "󰂄  {capacity}%",
-    "format-alt": "{icon}  {time}",
+    "format": "{icon}   {capacity}%",
+    "format-charging": "󰂄   {capacity}%",
+    "format-plugged": "󰂄   {capacity}%",
+    "format-alt": "{icon}   {time}",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip-format": "Battery: {capacity}%\nTime: {time}"
   },
 
   "clock": {
-    "format": "󰥔  {:%a %d %b  %H:%M}",
-    "format-alt": "󰃭  {:%Y-%m-%d}",
+    "format": "󰥔   {:%a %d %b   %H:%M}",
+    "format-alt": "󰃭   {:%Y-%m-%d}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "year",
@@ -130,9 +130,5 @@
     }
   },
 
-  "custom/power": {
-    "format": "⏻",
-    "tooltip": "Power Menu",
-    "on-click": "wlogout --protocol layer-shell"
-  }
+
 }
