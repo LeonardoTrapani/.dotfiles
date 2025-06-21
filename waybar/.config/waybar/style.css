@@ -1,44 +1,19 @@
-/* Catppuccin Mocha Colors */
-@define-color rosewater #f5e0dc;
-@define-color flamingo #f2cdcd;
-@define-color pink #f5c2e7;
-@define-color mauve #cba6f7;
-@define-color red #f38ba8;
-@define-color maroon #eba0ac;
-@define-color peach #fab387;
-@define-color yellow #f9e2af;
-@define-color green #a6e3a1;
-@define-color teal #94e2d5;
-@define-color sky #89dceb;
-@define-color sapphire #74c7ec;
-@define-color blue #89b4fa;
-@define-color lavender #b4befe;
-@define-color text #cdd6f4;
-@define-color subtext1 #bac2de;
-@define-color subtext0 #a6adc8;
-@define-color overlay2 #9399b2;
-@define-color overlay1 #7f849c;
-@define-color overlay0 #6c7086;
-@define-color surface2 #585b70;
-@define-color surface1 #45475a;
-@define-color surface0 #313244;
-@define-color base #1e1e2e;
-@define-color mantle #181825;
-@define-color crust #11111b;
+/* Import Official Catppuccin Mocha Colors */
+@import "catppuccin-mocha.css";
 
 /* Reset and base styles */
 * {
   border: none;
   border-radius: 0;
-  font-family: "Inter", "JetBrains Mono", sans-serif;
-  font-weight: 500;
-  font-size: 13px;
+  font-family: "Inter", "JetBrains Mono Nerd Font", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
   min-height: 0;
 }
 
 /* Main waybar window */
 window#waybar {
-  background: transparent;
+  background-color: transparent;
   color: @text;
 }
 
@@ -46,80 +21,89 @@ window#waybar {
 tooltip {
   background: @surface0;
   border: 2px solid @surface2;
-  border-radius: 12px;
+  border-radius: 16px;
   color: @text;
+  padding: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 tooltip label {
   color: @text;
 }
 
-/* Workspaces styling */
+/* Workspaces */
 #workspaces {
   background: @surface0;
-  margin: 3px 4px 3px 7px;
-  padding: 5px 4px;
-  border-radius: 12px;
-  border: 1px solid @surface2;
-  box-shadow: rgba(0, 0, 0, 0.116) 1px 1px 3px 1px;
+  margin: 8px 12px 8px 16px;
+  padding: 4px 8px;
+  border-radius: 16px;
+  border: 2px solid @surface2;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 #workspaces button {
-  padding: 3px 7px;
-  margin: 0 2px;
-  border-radius: 8px;
-  color: @text;
+  padding: 8px 12px;
+  margin: 2px 3px;
+  border-radius: 12px;
+  color: @subtext0;
   background: transparent;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 700;
 }
 
 #workspaces button.active {
   background: @mauve;
   color: @crust;
-  border-radius: 12px;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(203, 166, 247, 0.4);
 }
 
 #workspaces button.urgent {
   background: @red;
   color: @crust;
+  animation: urgent-blink 1s infinite alternate;
 }
 
 #workspaces button:hover {
   background: @surface2;
   color: @text;
-  border-radius: 12px;
+  transform: scale(1.02);
 }
 
 /* Window title */
 #window {
   background: @surface0;
-  margin: 2px 0px;
-  padding: 4px 10px;
-  border-radius: 12px;
-  border: 1px solid @surface2;
-  box-shadow: rgba(0, 0, 0, 0.116) 1px 1px 3px 1px;
+  margin: 8px 4px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: 2px solid @surface2;
   color: @text;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  max-width: 400px;
 }
 
 /* Media player */
 #custom-media {
   background: @surface0;
-  margin: 2px 0px;
-  padding: 4px 10px;
-  border-radius: 12px;
-  border: 1px solid @surface2;
-  box-shadow: rgba(0, 0, 0, 0.116) 1px 1px 3px 1px;
+  margin: 8px 4px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: 2px solid @green;
   color: @green;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  min-width: 200px;
 }
 
 #custom-media:hover {
   background: @surface1;
+  transform: translateY(-2px);
 }
 
-/* Right modules container */
+/* Common module styling */
 #custom-updates,
 #custom-weather,
-#custom-system,
 #network,
 #pulseaudio,
 #backlight,
@@ -127,143 +111,203 @@ tooltip label {
 #clock,
 #custom-power {
   background: @surface0;
-  margin: 3px 2px;
-  padding: 5px 10px;
-  border-radius: 12px;
-  border: 1px solid @surface2;
-  box-shadow: rgba(0, 0, 0, 0.116) 1px 1px 3px 1px;
+  margin: 8px 4px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  border: 2px solid @surface2;
   color: @text;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 600;
+  min-width: 32px;
 }
 
 /* Updates module */
 #custom-updates {
   color: @peach;
+  border-color: @peach;
 }
 
 #custom-updates:hover {
-  background: @peach;
-  color: @crust;
+  background: @surface1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(250, 179, 135, 0.3);
 }
 
 /* Weather module */
 #custom-weather {
   color: @sky;
+  border-color: @sky;
 }
 
 #custom-weather:hover {
-  background: @sky;
-  color: @crust;
+  background: @surface1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(137, 220, 235, 0.3);
 }
-
-
 
 /* Network module */
 #network {
   color: @teal;
+  border-color: @teal;
 }
 
 #network:hover {
-  background: @teal;
-  color: @crust;
+  background: @surface1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(148, 226, 213, 0.3);
 }
 
 #network.disconnected {
   color: @red;
+  border-color: @red;
 }
 
 /* Audio module */
 #pulseaudio {
   color: @blue;
+  border-color: @blue;
 }
 
 #pulseaudio:hover {
-  background: @blue;
-  color: @crust;
+  background: @surface1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(137, 180, 250, 0.3);
 }
 
 #pulseaudio.muted {
   color: @overlay0;
+  border-color: @overlay0;
 }
 
 /* Backlight module */
 #backlight {
   color: @yellow;
+  border-color: @yellow;
 }
 
 #backlight:hover {
-  background: @yellow;
-  color: @crust;
+  background: @surface1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(249, 226, 175, 0.3);
 }
 
 /* Battery module */
 #battery {
   color: @green;
+  border-color: @green;
 }
 
 #battery:hover {
-  background: @green;
-  color: @crust;
+  background: @surface1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(166, 227, 161, 0.3);
 }
 
 #battery.warning {
   color: @peach;
+  border-color: @peach;
+  animation: warning-pulse 2s infinite alternate;
 }
 
 #battery.critical {
   color: @red;
+  border-color: @red;
+  animation: critical-pulse 1s infinite alternate;
 }
 
 #battery.charging {
   color: @green;
+  border-color: @green;
+  animation: charging-pulse 2s infinite alternate;
 }
 
 /* Clock module */
 #clock {
   color: @mauve;
-  margin-right: 5px;
+  border-color: @mauve;
+  margin-right: 8px;
+  font-weight: 700;
+  padding: 8px 20px;
 }
 
 #clock:hover {
-  background: @mauve;
-  color: @crust;
+  background: @surface1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(203, 166, 247, 0.3);
 }
 
 /* Power button */
 #custom-power {
   color: @red;
-  margin-right: 10px;
-  padding: 8px 13px;
+  border-color: @red;
+  margin-right: 16px;
+  padding: 8px 16px;
+  font-size: 16px;
 }
 
 #custom-power:hover {
-  background: @red;
-  color: @crust;
-  border-radius: 16px;
+  background: @surface1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(243, 139, 168, 0.3);
 }
 
 /* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+@keyframes urgent-blink {
+  from { 
+    background: @red;
+    box-shadow: 0 4px 12px rgba(243, 139, 168, 0.4);
   }
-  to {
-    opacity: 1;
+  to { 
+    background: @maroon;
+    box-shadow: 0 4px 20px rgba(243, 139, 168, 0.6);
   }
 }
 
-/* Apply animation to all modules */
+@keyframes warning-pulse {
+  from { 
+    border-color: @peach;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  to { 
+    border-color: @yellow;
+    box-shadow: 0 6px 20px rgba(250, 179, 135, 0.4);
+  }
+}
+
+@keyframes critical-pulse {
+  from { 
+    border-color: @red;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  to { 
+    border-color: @maroon;
+    box-shadow: 0 6px 20px rgba(243, 139, 168, 0.4);
+  }
+}
+
+@keyframes charging-pulse {
+  from { 
+    border-color: @green;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  to { 
+    border-color: @teal;
+    box-shadow: 0 6px 20px rgba(166, 227, 161, 0.4);
+  }
+}
+
+/* Apply smooth transitions to all modules */
 #workspaces,
 #window,
 #custom-media,
 #custom-updates,
 #custom-weather,
-#custom-system,
 #network,
 #pulseaudio,
 #backlight,
 #battery,
 #clock,
 #custom-power {
-  animation: fadeIn 0.5s ease-out;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
