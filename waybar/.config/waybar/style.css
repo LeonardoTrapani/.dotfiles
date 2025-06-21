@@ -70,28 +70,26 @@ tooltip label {
 
 /* Window title */
 #window {
-  background: @surface0;
-  margin: 8px 4px;
-  padding: 8px 16px;
-  border-radius: 16px;
-  border: 2px solid @surface2;
-  color: @text;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  font-weight: 500;
-  max-width: 400px;
+    background: @surface0;
+    margin: 8px 4px;
+    padding: 8px 16px;
+    border-radius: 16px;
+    border: 2px solid @surface2;
+    color: @text;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
 }
 
 /* Media player */
 #custom-media {
-  background: @surface0;
-  margin: 8px 4px;
-  padding: 8px 16px;
-  border-radius: 16px;
-  border: 2px solid @green;
-  color: @green;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  font-weight: 500;
-  min-width: 200px;
+    background: @surface0;
+    margin: 8px 4px;
+    padding: 8px 16px;
+    border-radius: 16px;
+    border: 2px solid @green;
+    color: @green;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    font-weight: 500;
 }
 
 #custom-media:hover {
@@ -114,9 +112,8 @@ tooltip label {
   border: 2px solid @surface2;
   color: @text;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  font-weight: 600;
-  min-width: 32px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-weight: 600;
 }
 
 /* Updates module */
