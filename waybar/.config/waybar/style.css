@@ -50,7 +50,6 @@ window#waybar {
 #workspaces button.urgent {
   background-color: @red;
   color: @crust;
-  animation: urgent-blink 1s ease infinite alternate;
 }
 
 /* Window title - sleek design */
@@ -141,12 +140,10 @@ window#waybar.empty #window {
 
 #battery.warning:not(.charging) {
   color: @peach;
-  animation: warning-pulse 2s ease infinite;
 }
 
 #battery.critical:not(.charging) {
   color: @red;
-  animation: critical-pulse 1s ease infinite;
 }
 
 #clock {
@@ -195,30 +192,4 @@ tooltip label {
   color: @text;
 }
 
-/* Animations */
-@keyframes urgent-blink {
-  from {
-    background-color: @red;
-  }
-  to {
-    background-color: @maroon;
-  }
-}
-
-@keyframes warning-pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
-@keyframes critical-pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
+/* Animations removed for compatibility */
