@@ -101,6 +101,7 @@ window#waybar.empty #window {
 #custom-system-info,
 #custom-updates,
 #custom-weather,
+#custom-notification,
 #network,
 #pulseaudio,
 #backlight,
@@ -119,6 +120,7 @@ window#waybar.empty #window {
 #custom-system-info:hover,
 #custom-updates:hover,
 #custom-weather:hover,
+#custom-notification:hover,
 #network:hover,
 #pulseaudio:hover,
 #backlight:hover,
@@ -146,6 +148,13 @@ window#waybar.empty #window {
   color: @sky;
   background: rgba(137, 220, 235, 0.15);
   border-color: rgba(137, 220, 235, 0.2);
+}
+
+#custom-notification {
+  color: @mauve;
+  background: rgba(203, 166, 247, 0.15);
+  border-color: rgba(203, 166, 247, 0.2);
+  font-size: 14px;
 }
 
 #network {
