@@ -1,5 +1,5 @@
 function ColorMyPencils(color)
-	color = color or "catppuccin"
+	color = color or "onedark"
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -7,10 +7,13 @@ function ColorMyPencils(color)
 end
 
 return {
-	"catppuccin/nvim",
-	name = "catpuccin",
-	priority = 1000,
+	"navarasu/onedark.nvim",
+	name = "onedark",
 	config = function()
-		ColorMyPencils()
+		require("onedark").setup({
+			style = "dark",
+		})
+		-- Enable theme
+		require("onedark").load()
 	end,
 }
